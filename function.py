@@ -9,7 +9,10 @@ Original file is located at
 
 # Commented out IPython magic to ensure Python compatibility.
 # Import the random library to use for the dice later
+# student name - Ravkeerat Singh
+# student id - 101344680
 import random
+
 
 # Will the line below print when you import function.py into main.py?
 # print("Inside function.py")
@@ -124,6 +127,7 @@ def monster_attacks(m_combat_strength, health_points):
         print("    |    The monster has reduced Player's health to: " + str(health_points))
     return health_points
 
+
 # You can choose to go crazy, but it will reduce your health points by 5
 def inception_dream(num_dream_lvls):
     # Base case
@@ -148,27 +152,25 @@ def inception_dream(num_dream_lvls):
         return 1 + int(inception_dream(num_dream_lvls - 1))
 
 
+# Lab 5 : Task 3
+def final_score(hero_name,num_stars):
+    tries = 0
+    input_invalid = True
+    while input_invalid and tries in range(5):
+        print("    |", end="    ")
+        hero_name = input("Enter your Hero's name (in two words)")
+        name = hero_name.split()
+        if len(name) != 2:
+            print("    |    Please enter a name with two parts (separated by a space)")
+            tries += 1
+        else:
+            if not name[0].isalpha() or not name[1].isalpha():
+                print("    |    Please enter an alphabetical name")
+            else:
+                short_name = name[0][0:2:1] + name[1][0:1:1]
+                print("    |    I'm going to call you " + short_name + " for short")
+                input_invalid = False
 
-#Lab 5 : Task 3
-def final_score(tries,input_invalid):
-  # tries = 0
-  # input_invalid = True
-  while input_invalid and tries in range(5):
-      print("    |", end="    ")
-      hero_name = input("Enter your Hero's name (in two words)")
-      name = hero_name.split()
-      if len(name) != 2:
-          print("    |    Please enter a name with two parts (separated by a space)")
-          tries += 1
-      else:
-          if not name[0].isalpha() or not name[1].isalpha():
-            print("    |    Please enter an alphabetical name")
-          else:
-              short_name = name[0][0:2:1] + name[1][0:1:1]
-              print("    |    I'm going to call you " + short_name + " for short")
-              input_invalid = False
     if not input_invalid:
         stars = "*" * num_stars
         print("    |    Hero " + short_name + " gets <" + stars + "> stars")
-
-return tries

@@ -41,11 +41,11 @@ loot_options = ["Health Potion", "Poison Potion", "Secret Note", "Leather Boots"
 belt = []
 
 # Lab 5-2a
-weapon_choose = int(input("Which item from belt would you like to choose"))
-if weapon_choose < 0 or weapon_choose > 2:
-    print("Invalid input. Input must be less than 2")
+weapon_choose = int(input(" Which item from belt would you like to choose: "))
+if weapon_choose < 0 or weapon_choose > 3:
+    print("Invalid input. Input must be less than 3")
 else:
-    weapon_choose = function.use_loot(belt,health_points=100)
+    print("Sorry invalid input")
 # Define the Monster's Powers
 monster_powers = {
     "Fire Magic": 2,
@@ -219,10 +219,10 @@ if not input_invalid:
         # Fight Sequence
         print("    |", end="    ")
 
-        # Lab 4: Answer 4:
+      # Lab 4: Answer 4:
         input("Roll to see who strikes first (Press Enter)")
         attack_roll = random.choice(small_dice_options)
-        if not (attack_roll % 2 == 0):
+        if not(attack_roll % 2 == 0):
             print("    |", end="    ")
             input("You strike (Press enter)")
             m_health_points = function.hero_attacks(combat_strength, m_health_points)
@@ -233,15 +233,27 @@ if not input_invalid:
                 print("------------------------------------------------------------------")
                 input("    |    The monster strikes (Press enter)!!!")
                 health_points = function.monster_attacks(m_combat_strength, health_points)
-                if health_points == 0:
+                #Lab 5
+                #Lab exercise: 5-2B
+            if health_points > 0:
+               print("You got to use: " + loot_options[1] + " this time")
+               remove_item = loot_options.pop(1)
+               print("You cannot longer use " + remove_item + " for the next round")
+               print("Your remaining items are: " + str(loot_options))
+            elif health_points == 0:
                     num_stars = 1
-                else:
+            else:
                     num_stars = 2
         else:
             print("    |", end="    ")
             input("The Monster strikes (Press enter)")
             health_points = function.monster_attacks(m_combat_strength, health_points)
-            if health_points == 0:
+            if health_points > 0:
+               print("You got to use: " + loot_options[1] + " this time")
+               remove_item = loot_options.pop(1)
+               print("You cannot longer use " + remove_item + " for the next round")
+               print("Your remaining items are: " + str(loot_options))
+            elif health_points == 0:
                 num_stars = 1
             else:
                 print("    |", end="    ")
@@ -253,7 +265,5 @@ if not input_invalid:
                 else:
                     num_stars = 2
 
-    # Lab 4: Answer 1: Final Score Display
-# final score function being called
 # function being called
-function.final_score(num_stars)
+function.final_score("King kong",4)

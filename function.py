@@ -175,3 +175,4 @@ def final_score(num_stars):
         stars = "*" * num_stars
         print("    |    Hero " + short_name + " gets <" + stars + "> stars")
      return
+#depends on the choice

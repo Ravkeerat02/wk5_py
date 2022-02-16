@@ -153,7 +153,7 @@ def inception_dream(num_dream_lvls):
 
 
 # Lab 5 : Task 3
-def final_score(hero_name,num_stars):
+def final_score(num_stars):
     tries = 0
     input_invalid = True
     while input_invalid and tries in range(5):
@@ -174,3 +174,4 @@ def final_score(hero_name,num_stars):
     if not input_invalid:
         stars = "*" * num_stars
         print("    |    Hero " + short_name + " gets <" + stars + "> stars")
+     return

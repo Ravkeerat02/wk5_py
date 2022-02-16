@@ -266,4 +266,4 @@ if not input_invalid:
                     num_stars = 2
 
 # function being called
-function.final_score("King kong",4)
+function.final_score(num_stars)
